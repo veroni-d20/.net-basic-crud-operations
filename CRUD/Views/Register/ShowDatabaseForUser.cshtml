@@ -1,0 +1,27 @@
+﻿@model List<CRUD.Models.LoginPanel>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                @for(int i=0; i<Model.Count();i++)
+                {
+                <tr>
+                    <td>@Model[i].Username</td>
+                    <td>@Model[i].Password</td>
+                    <td>
+                        <a href="@Url.Action("Delete", new{id = Model[i].ID})"><i class="glyphicon glyphicon-trash"></i></a>
+                        <a href="@Url.Action("Edit", new{id = Model[i].ID})"><i class="glyphicon glyphicon-edit"></i></a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
